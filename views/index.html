@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Ejercicio de Vehículos</title>
+</head>
+
+<body>
+    <!-- <p id="carInfo"></p>
+    <button onclick="createCar('1212SDS','SEAT','ROJO')">Create car</button> -->
+
+    <!-- Main Container  -->
+    <main id="main-container" class="container-md">
+        <h1 class="text-center mb-3">Ejercicio de Vehículos</h1>
+        <!-- car card -->
+        <div id="carCard" class="card">
+            <h3 class="card-header">
+                <i class="fas fa-car"></i> Coche
+            </h3>
+            <div class="card-body">
+                <p class="required-msg-info text-muted ml-3 mb-3">Datos obligatorios</p>
+                <div class="container">
+                    <form id="carForm" action="">
+                        <h5><i class="fa fa-info-circle" aria-hidden="true"></i> Datos del coche</h5>
+                        <hr class="mt-0">
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label for="carPlate" class="required">Matrícula</label>
+                                <input type="text" class="form-control" id="carPlate" name="carPlate"
+                                       placeholder="Matrícula">
+                                <div class="invalid-feedback" id="carPlateError"></div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="carBrand" class="required">Marca</label>
+                                <input type="text" class="form-control" id="carBrand" name="carBrand"
+                                       placeholder="Marca">
+                                <div class="invalid-feedback" id="carBrandError"></div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="carColor" class="required">Color</label>
+                                <input type="text" class="form-control" id="carColor" name="carColor"
+                                       placeholder="Color">
+                                <div class="invalid-feedback" id="carColorError"></div>
+                            </div>
+                        </div>
+                        <a href="#" id="submitCar" class="btn btn-success visible"
+                           onclick="doSubmit('carForm');">
+                            Crear coche</a>
+                    </form><!-- /#carForm -->
+                </div>
+                <div class="container">
+                    <form id="wheelsForm" class="mt-3 d-none" action="">
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label>Matrícula</label>
+                                <input id="wheelCarPlate" type="text" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Marca</label>
+                                <input id="wheelCarBrand" type="text" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Color</label>
+                                <input id="wheelCarColor" type="text" class="form-control" value="" readonly>
+                            </div>
+                        </div>
+                        <h5><i class="fa fa-cog" aria-hidden="true"></i> Ruedas</h5>
+                        <hr class="mt-0">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Rueda 1
+                                    </h6>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="wheelBrand1" class="required">Marca</label>
+                                                <input type="text" class="form-control" id="wheelBrand1"
+                                                       name="wheelBrand1"
+                                                       placeholder="Marca">
+                                                <div class="invalid-feedback" id="wheelBrand1Error"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="wheelDiameter1" class="required">Diámetro</label>
+                                                <input type="number" class="form-control" id="wheelDiameter1"
+                                                       name="wheelDiameter1" placeholder="Diámetro" step="0.1">
+                                                <div class="invalid-feedback" id="wheelDiameter1Error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Rueda 2
+                                    </h6>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="wheelBrand2" class="required">Marca</label>
+                                                <input type="text" class="form-control" id="wheelBrand2"
+                                                       name="wheelBrand2"
+                                                       placeholder="Marca">
+                                                <div class="invalid-feedback" id="wheelBrand2Error"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="wheelDiameter2" class="required">Diámetro</label>
+                                                <input type="number" class="form-control" id="wheelDiameter2"
+                                                       name="wheelDiameter2" placeholder="Diámetro" step="0.1">
+                                                <div class="invalid-feedback" id="wheelDiameter2Error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Rueda 3
+                                    </h6>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="wheelBrand3" class="required">Marca</label>
+                                                <input type="text" class="form-control" id="wheelBrand3"
+                                                       name="wheelBrand3"
+                                                       placeholder="Marca">
+                                                <div class="invalid-feedback" id="wheelBrand3Error"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="wheelDiameter3" class="required">Diámetro</label>
+                                                <input type="number" class="form-control" id="wheelDiameter3"
+                                                       name="wheelDiameter3" placeholder="Diámetro" step="0.1">
+                                                <div class="invalid-feedback" id="wheelDiameter3Error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        Rueda 4
+                                    </h6>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="wheelBrand4" class="required">Marca</label>
+                                                <input type="text" class="form-control" id="wheelBrand4"
+                                                       name="wheelBrand4"
+                                                       placeholder="Marca">
+                                                <div class="invalid-feedback" id="wheelBrand4Error"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="wheelDiameter4" class="required">Diámetro</label>
+                                                <input type="number" class="form-control" id="wheelDiameter4"
+                                                       name="wheelDiameter4" placeholder="Diámetro" step="0.1">
+                                                <div class="invalid-feedback" id="wheelDiameter4Error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+                        <a href="#" class="btn btn-success mt-3" onclick="doSubmit('wheelsForm');">Añadir ruedas</a>
+                    </form>
+                </div>
+            </div><!-- /card-body -->
+        </div><!-- /.card -->
+
+        <!-- car-list card -->
+        <div id="carListCard" class="card mt-3">
+            <h3 class="card-header">
+                <i class="fas fa-list"></i> Lista de coches
+            </h3>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="carsTable" class="table table-striped table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" scope="col">#</th>
+                                <th rowspan="2" scope="col">Matrícula</th>
+                                <th rowspan="2" scope="col">Marca</th>
+                                <th rowspan="2" scope="col">Color</th>
+                                <th colspan="2" scope="col">Rueda 1</th>
+                                <th colspan="2" scope="col">Rueda 2</th>
+                                <th colspan="2" scope="col">Rueda 3</th>
+                                <th colspan="2" scope="col">Rueda 4</th>
+                            </tr>
+                            <tr>
+                                <th>Marca</th>
+                                <th>Diám.</th>
+                                <th>Marca</th>
+                                <th>Diám.</th>
+                                <th>Marca</th>
+                                <th>Diám.</th>
+                                <th>Marca</th>
+                                <th>Diám.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main><!-- /#main-container -->
+
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <!-- El jQuery slim de Bootstrap 4.5 NO es completo (p.e. le falta el fadeOut) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+            integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+            crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/0a45d04076.js" crossorigin="anonymous"></script>
+
+    <!-- Custom -->
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+</body>
+
+</html>

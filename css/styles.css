@@ -1,0 +1,32 @@
+@charset "UTF-8";
+* {
+  /* Border y Padding incluídos en los width y height */
+  box-sizing: border-box; }
+
+form label:not(.form-check-label) {
+  font-weight: bold; }
+
+.required:after {
+  content: "*";
+  font-size: 100%;
+  font-weight: bold;
+  color: #ff000e;
+  color: #ff000e;
+  margin-left: 0.15rem; }
+
+.required-msg-info {
+  display: block;
+  width: 100%;
+  margin-bottom: .25rem;
+  font-size: 80%; }
+  .required-msg-info:before {
+    content: "*";
+    font-size: 100%;
+    font-weight: bold;
+    color: #ff000e;
+    color: #ff000e;
+    margin-right: 0.15rem; }
+
+#carsTable thead th {
+  vertical-align: middle;
+  text-align: center; }

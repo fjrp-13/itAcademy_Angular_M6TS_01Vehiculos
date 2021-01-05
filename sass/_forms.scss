@@ -1,0 +1,50 @@
+
+@mixin required-icon {
+    content: "*";
+    font-size: 100%;
+    font-weight: bold;
+    color: #ff000e;
+    color: $required-icon-color;
+}
+@mixin required-icon-after {
+    @include required-icon;
+    margin-left: 0.15rem;
+
+}
+@mixin required-icon-before {
+    @include required-icon;
+    margin-right: 0.15rem;
+}
+
+form {
+    & label {
+        &:not(.form-check-label) {
+            font-weight: bold;
+        }
+    }
+}
+
+.required {
+    &:after {
+        @include required-icon-after;
+    }
+}
+
+.required-msg-info {
+    display: block;
+    width: 100%;
+    margin-bottom: .25rem;
+    font-size: 80%;
+    &:before {
+        @include required-icon-before;
+    }
+}
+
+#carsTable {
+    & thead {
+        & th {
+            vertical-align: middle;
+            text-align: center;
+        }
+    }
+}
